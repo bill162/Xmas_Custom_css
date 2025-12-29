@@ -1,0 +1,685 @@
+/* ----------------------------------------------------
+   🎄 Xmas Theme Variables
+---------------------------------------------------- */
+:root, [data-theme="dark"] {
+    --rounded-cards: 15px; /* Global border-radius */
+    --blur: 2px; /* Global blur amount */
+    -jf-palette-background-default: #000000 !important;
+    --jf-palette-background-paper: #000000 !important;
+    --jf-palette-background-defaultChannel: 0 0 0 !important;
+    --jf-palette-background-paperChannel: 0 0 0 !important;
+    --jf-palette-primary-main: #00a4dc;
+    --jf-palette-primary-light: rgb(51, 182, 227);
+    --jf-palette-primary-dark: rgb(0, 114, 154);
+    --jf-palette-action-hover: rgb(255 0 0);
+    --primary-r: 120; /* Βασικό κόκκινο (R) */
+    --primary-g: 0;  /* Βασικό κόκκινο (G) */
+    --primary-b: 0;  /* Βασικό κόκκινο (B) */
+
+    --primary-accent-color: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 1.0); /* Full red */
+    --secondary-accent-color: rgba(45, 168, 57, 0.2); /* Light green hover */
+
+    --primary-background-color: #101010; /* Dark base */
+    --secondary-background-color: #181818; /* Slightly lighter dark */
+
+    --primary-background-transparent: rgba(35,35,35,0.5);  /* Transparent dark layer */
+    --secondary-background-transparent: rgba(0,0,0,0.6);   /* Darker transparent layer */
+    --tertiary-background-transparent: rgba(35,35,35,0.85);/* Used for overlays */
+
+}
+
+
+
+/* ----------------------------------------------------
+   🌲 Navbar Hover Effects
+---------------------------------------------------- */
+.navbar .nav-item:hover {
+    background-color: #2da839 !important; /* Green glow */
+    border-radius: var(--rounded-cards) !important;
+    transition: background 0.3s, transform 0.2s !important;
+    transform: scale(1.05); /* Slight bounce */
+}
+
+/* ----------------------------------------------------
+   🖼️ Background blur image override
+---------------------------------------------------- */
+.backdropImage {
+    display: none; /* Disable default backdrop */
+}
+
+.backgroundContainer {
+    background-color: rgba(0, 0, 0, 0); /* Transparent layer */
+    background-image: url('https://i.pinimg.com/736x/88/e7/1f/88e71f0eb12665c8987329d7d6831a00.jpg'); /* Custom bg */
+    filter: blur(10px); /* Apply blur */
+    background-size: cover; /* Fullscreen */
+}
+
+/* ----------------------------------------------------
+   ✨ Xmas Header Glow — titles & headings
+---------------------------------------------------- */
+h1, h2, .pageTitle, .title {
+    color: #f9f1c1 !important; /* Golden tone */
+    text-shadow: 0 0 4px #f9f1c1; /* Glow effect */
+}
+
+/* ----------------------------------------------------
+   🎁 Xmas Buttons Styling
+---------------------------------------------------- */
+.button, .btn, .emby-button.raised {
+    background: linear-gradient(135deg, #c41e3a, #ff6b6b) !important; /* Red gradient */
+    color: #fff !important;
+    border-radius: 15px !important;
+    transition: transform 0.2s, background 0.3s !important;
+}
+
+.button:hover, .btn:hover, .emby-button.raised:hover {
+    background: linear-gradient(135deg, #2da839, #5ef15d) !important; /* Green gradient */
+    transform: scale(1.05) !important; /* Light pop */
+}
+
+/* ----------------------------------------------------
+   ⭐ Card Subtle Sparkle
+---------------------------------------------------- */
+.detailSectionContent, .trackSelections, .detailsGroupItem {
+    box-shadow: 0 0 10px rgba(255, 223, 186, 0.8) !important; /* Soft shine */
+}
+
+/* ----------------------------------------------------
+   🔊 Now Playing / Progress Bar Xmas Accent
+---------------------------------------------------- */
+.nowPlayingBarPositionContainer, .innerCardFooter, .itemProgressBar {
+    border-radius: var(--rounded-cards) !important;
+    background: rgb(32, 0, 0, 0.3) !important; /* Red accent */
+}
+
+/* ----------------------------------------------------
+   ⏭ Up Next Hover Animation
+---------------------------------------------------- */
+.upNextDialog-buttons .upNextDialog-button:hover {
+    transform: scale(1.1) !important;
+    background-color: #2da839 !important;
+}
+
+/* ----------------------------------------------------
+   🎚 Slider Xmas Color Fix
+---------------------------------------------------- */
+.mdl-slider-background-lower, .iconOsdProgressInner {
+    background: var(--primary-accent-color) !important;
+}
+
+/* ----------------------------------------------------
+   ✨ Optional Card Sparkle Animation
+---------------------------------------------------- */
+@keyframes xmasSparkle {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 223, 186, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(255, 223, 186, 0.9); }
+}
+
+.detailSectionContent, .trackSelections {
+    animation: xmasSparkle 3s infinite alternate; /* Slow sparkle */
+}
+
+/* ----------------------------------------------------
+   🏠 Home & Favourites Hover
+---------------------------------------------------- */
+.navbar .nav-item.home:hover,
+.navbar .nav-item.favourites:hover {
+    background-color: #2da839 !important; /* Green hover */
+    border-radius: var(--rounded-cards) !important;
+    transition: background 0.3s, transform 0.2s !important;
+    transform: scale(1.05); /* Bounce */
+}
+/* ---------------------------------------------------- 
+🎄 Merry Christmas Banner Under Tabs 
+---------------------------------------------------- */
+@keyframes strobe {
+    0%, 50%, 100% { color: red; }
+    25%, 75% { color: green; }
+}
+
+.emby-tabs-slider::after {
+    content: "MERRY CHRISTMAS 🎄";
+    display: inline-block;
+    padding: 0.8em 2em;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 0.6em;
+    text-align: center;
+    max-width: 90vw;
+    white-space: normal;
+    word-break: break-word;
+
+    animation: strobe 2s step-start infinite;
+}
+
+
+/*------------------------------------
+   Side bar 
+--------------------------------------*/
+.sectionName.navMenuOptionText {
+    font-weight: 700;
+    background: linear-gradient(90deg, red, green, red);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 10s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.userMenuOptions .navMenuOptionText {
+    font-weight: 700;
+    background: linear-gradient(90deg, red, green, red);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 10s linear infinite;
+}
+
+[dir=ltr] .sidebarHeader,
+[dir=ltr] .navMenuOptionIcon {
+    font-weight: 700;
+    display: inline-block;
+
+    color: red; /* αρχικό χρώμα */
+   
+}
+
+
+
+
+/* ----------------------------------------------------
+   📱 Mobile tweaks
+---------------------------------------------------- */
+@media (max-width: 600px) {
+    .emby-tabs-slider::after {
+        padding: 0.6em 1.2em;
+        font-size: 0.85em;
+    }
+}
+
+/* ----------------------------------------------------
+   🧩 Misc UI Fixes
+---------------------------------------------------- */
+.headerRight {
+    color: green; /* Testing visibility */
+}
+
+.headerSyncButton {
+    display: none; /* Hide sync button */
+}
+
+#castCollapsible {
+    display: none; /* Hide cast menu */
+}
+
+/* ----------------------------------------------------
+   🌲 Menu Hover Tweaks
+---------------------------------------------------- */
+.navMenuOption:hover {
+    background-color: rgba(29, 109, 37, 1)!important; /* Solid green */
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+/* ----------------------------------------------------
+   📌 Tab Hover Behavior (rounded + smooth)
+---------------------------------------------------- */
+.emby-tab-button {
+    transition: background 0.3s ease, border-radius 0.3s ease;
+    border-radius: 30px;
+}
+
+.emby-tab-button:hover {
+    background-color: rgba(45, 168, 57, 0.8) !important;
+    border-radius: 30px;
+}
+
+
+/* ----------------------------------------------------
+   EXPERIMENTAL BETA TESTING — Glass sidebar
+---------------------------------------------------- */
+.layout-desktop .mainDrawer {
+    background: rgba(0, 0, 0, 0.0) !important; /* μαύρο με 40% διάφανο */
+    backdrop-filter: blur(12px) !important; /* θολούρα πίσω από το sidebar */
+    -webkit-backdrop-filter: blur(12px) !important; /* safari */
+}
+
+.layout-desktop .detailsGroupItem {
+    padding: 10px 20px !important;
+    border-radius: 20px !important;
+    width: fit-content !important;
+    max-width: max-content !important;
+    display: flex;
+    gap: 1em;
+    background: black !important;
+}
+
+.layout-mobile .mainDrawer,
+.mainDrawer {
+    background: rgba(0, 0, 0, 0.25) !important; /* πιο έντονο μαύρο για visibility */
+    backdrop-filter: blur(12px) !important; /* glass effect */
+    -webkit-backdrop-filter: blur(12px) !important; /* safari */
+    border: 1px solid rgba(255,255,255,0.1); /* subtle outline */
+    box-shadow: 0 0 15px rgba(255, 223, 186, 0.1); /* Xmas sparkle hint */
+}
+
+.listItem:focus {
+    background: #ff0000;
+}
+
+.listItem:hover {
+    background: rgba(29, 109, 37, 1) !important;
+}
+
+
+
+.layout-desktop:has(#itemDetailPage.noBackdropTransparency) .mainDrawer{
+ background: rgba(0, 0, 0, 0.0) !important; /* μαύρο με 40% διάφανο */
+    backdrop-filter: blur(12px) !important; /* θολούρα πίσω από το sidebar */
+    -webkit-backdrop-filter: blur(12px) !important; /* safari */
+}
+.layout-desktop:has(.backgroundContainer.withBackdrop) .navMenuOption:hover:not(.navMenuOption-selected) {
+    background: rgba(29, 109, 37, 1)  !important;
+    backdrop-filter: blur(var(--blur)) !important;
+}
+
+.trackSelections {
+    background: black !important;
+    border-radius: var(--rounded-cards) !important;
+    padding: 10px 20px !important;
+    margin-top: 20px !important;
+}
+
+.layout-desktop .detailPageWrapperContainer .detailSectionContent {
+    grid-area: scontent;
+    background-color: black !important;
+}
+
+/* ----------------------------------------------------
+   Animations for glowing effect for glassy sidebar 
+---------------------------------------------------- */
+@keyframes SideBar {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 223, 186, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(255, 223, 186, 0.8); }
+}
+
+.layout-desktop .mainDrawer {
+    animation: SideBar 10s infinite alternate; /* Slow sparkle */
+}
+/* ----------------------------------------------------
+   Transparent containers in movie pages
+---------------------------------------------------- */
+.layout-desktop .detailPageWrapperContainer .detailPagePrimaryContainer,
+.layout-desktop .detailPageSecondaryContainer {
+    background: rgba(0, 0, 0, 0.0) !important;
+}
+
+/* ----------------------------------------------------
+   Boxaki mobile/glassy cards
+---------------------------------------------------- */
+
+.layout-mobile .detailPageWrapperContainer .detailSectionContent,
+.layout-mobile .detailPageWrapperContainer .trackSelections,
+.layout-mobile .detailPageWrapperContainer .itemDetailsGroup {
+    background: rgba(249, 241, 193, 0.0) !important;
+}
+
+/* ----------------------------------------------------
+   Large glassy wrapper γύρω από όλα τα badges
+---------------------------------------------------- */
+.allDetailsBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding: 1em;
+
+    background: rgba(0,0,0,0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+
+    border-radius: var(--rounded-cards) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+/* Inner badges πιο minimal μέσα στο box */
+.allDetailsBox, .detailsGroupItem {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.3em 0.6em !important;
+    border-radius: 10px !important;
+    color: #f9f1c1 !important;
+}
+.listItemBody, .listItemButton, .listItemIcon, .listItemImage{
+color: #f9f1c1 !important;
+}
+
+
+/* ----------------------------------------------------
+   bye bye media info
+---------------------------------------------------- */
+/* Κρύβει το κουμπί Media Info όπου κι αν εμφανίζεται */
+[data-id="moremediainfo"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Γιατί μερικές φορές το Jellyfin κάνει μαλακίες και αλλάζει το class */
+button.listItem-button[data-id="moremediainfo"],
+button[data-id="moremediainfo"] {
+    display: none !important;
+}
+ 
+/* ----------------------------------------------------
+   dialog?
+---------------------------------------------------- */
+
+
+.dialog {
+    background-color: rgb(0, 0, 0) !important;
+}
+
+* {
+    scrollbar-color: #200002 #ffffff00;
+    scrollbar-width: thin;
+}
+
+/* --------------------------------------------------
+    Skip button css
+------------------------------------------------------ */
+
+/* Skip Intro Button – Xmas Edition */
+.skip-button {
+  position: absolute !important;
+  bottom: 20px;
+  right: -20px;
+ 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+
+  color: #fff;
+  background: linear-gradient(135deg, #8b0000, #c40000);
+  backdrop-filter: blur(6px);
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.35);
+
+  box-shadow:
+    0 0 10px rgba(255, 60, 60, 0.45),
+    0 8px 24px rgba(0,0,0,0.45);
+
+  cursor: pointer;
+
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.25s ease;
+  z-index: 9999;
+}
+
+/* Hover – festive αλλά όχι καραγκιοζιλίκι */
+.skip-button:hover {
+  background: linear-gradient(135deg, #ffffff, #ffecec);
+  color: #8b0000;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 14px rgba(255,255,255,0.7),
+    0 12px 30px rgba(0,0,0,0.5);
+}
+
+/* Icon size */
+.skip-button .material-icons {
+  font-size: 20px;
+}
+
+/* Hidden state – ΔΕΝ ΤΟ ΠΕΙΡΑΖΟΥΜΕ */
+.skip-button-hidden,
+.skip-button.hide {
+  opacity: 0 !important;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+/* --------------------------------------------------------
+    Pause 
+----------------------------------------------------------- */
+
+/* ================= KILL DETAILS / PLOT COMPLETELY ================= */
+#overlay-details,
+#overlay-plot {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ================= HIDE DETAILS COMPLETELY ================= */
+#overlay-details {
+  display: none !important;
+}
+
+/* ================= OPTIONAL DISC (VERY SUBTLE) ================= */
+#overlay-disc {
+  position: absolute !important;
+  top: 50% !important;
+  right: 6% !important;
+  transform: translateY(-50%);
+  width: 24vw !important;
+  height: auto !important;
+  display: none !important;
+  animation: spin 40s linear infinite !important;
+  z-index: -1 !important;
+  opacity: 0.12;
+  filter: brightness(70%) contrast(110%);
+}
+
+/* ================= LOGO (IF EXISTS) ================= */
+#overlay-logo {
+  position: absolute !important;
+  pointer-events: none;
+  max-width: 45vw !important;
+  max-height: 20vh !important;
+  width: auto !important;
+  height: auto !important;
+  top: 26vh !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+/* ================= PAUSED TEXT (CSS ONLY) ================= */
+#video-overlay::after {
+  content: "PAUSED";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  color: rgba(245,245,245,0.95);
+
+  /* Netflix + soft Xmas glow */
+  text-shadow:
+    0 4px 18px rgba(0,0,0,.75),
+    0 0 26px rgba(180, 40, 40, 0.35);
+
+  pointer-events: none;
+
+  animation: pausedPulse 3.5s ease-in-out infinite;
+}
+
+/* ================= PLAYER SAFETY ================= */
+.videoOsdBottom {
+  z-index: 1 !important;
+}
+
+video {
+  z-index: -1 !important;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+
+@keyframes pausedPulse {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+
+/* --------------------------------------------------------
+   TV layout (android tv etc) THIS IS MAY NOT WORK
+----------------------------------------------------------- */
+
+.layout-tv {
+
+    /* TV spacing */
+    --tv-padding: 22px;
+    --tv-radius: 22px;
+
+    /* Xmas accents */
+    --xmas-red: rgba(140, 0, 0, 1);
+    --xmas-green: rgba(45, 168, 57, 1);
+
+    --xmas-red-glow: rgba(140, 0, 0, 0.55);
+    --xmas-green-glow: rgba(45, 168, 57, 0.45);
+}
+
+/* ===== FOCUS STATES (REMOTE = ΤΟ ΠΙΟ ΣΗΜΑΝΤΙΚΟ) ===== */
+.layout-tv .listItem:focus,
+.layout-tv .listItem.focused,
+.layout-tv .card:focus,
+.layout-tv .navMenuOption:focus {
+    outline: none !important;
+    transform: scale(1.08);
+    background: var(--primary-background-transparent) !important;
+
+    box-shadow:
+        0 0 0 3px var(--xmas-red),
+        0 0 18px var(--xmas-red-glow);
+}
+
+/* ===== SELECTED MENU (XMAS RED) ===== */
+.layout-tv .navMenuOption-selected {
+    background: linear-gradient(
+        135deg,
+        rgba(120, 0, 0, 1),
+        rgba(160, 0, 0, 1)
+    ) !important;
+
+    color: #fff !important;
+
+    box-shadow:
+        0 0 25px var(--xmas-red-glow);
+}
+
+/* ===== TABS (XMAS GREEN WHEN ACTIVE) ===== */
+.layout-tv .emby-tab-button {
+    font-size: 1.15em !important;
+    padding: 14px 28px !important;
+    border-radius: 999px !important;
+}
+
+.layout-tv .emby-tab-button.emby-tab-button-active {
+    background: linear-gradient(
+        135deg,
+        rgba(29, 109, 37, 1),
+        rgba(45, 168, 57, 1)
+    ) !important;
+
+    color: #fff !important;
+
+    box-shadow:
+        0 0 18px var(--xmas-green-glow);
+}
+
+/* ===== CARDS (SUBTLE XMAS GLOW) ===== */
+.layout-tv .cardContent,
+.layout-tv .cardOverlayContainer {
+    border-radius: var(--tv-radius) !important;
+}
+
+.layout-tv .card:focus {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 0 4px var(--xmas-green),
+        0 0 22px var(--xmas-green-glow),
+        0 14px 40px rgba(0,0,0,0.85);
+}
+
+/* ===== SLIDERS / PROGRESS (XMAS RED) ===== */
+.layout-tv .mdl-slider-background-lower,
+.layout-tv .iconOsdProgressInner {
+    height: 12px !important;
+    border-radius: 999px !important;
+
+    background: linear-gradient(
+        90deg,
+        rgba(120, 0, 0, 1),
+        rgba(180, 0, 0, 1)
+    ) !important;
+
+    box-shadow:
+        0 0 12px var(--xmas-red-glow);
+}
+
+/* ===== NOW PLAYING BAR (XMAS GLASS) ===== */
+.layout-tv .nowPlayingBar {
+    padding: var(--tv-padding) !important;
+    border-radius: var(--tv-radius) !important;
+
+    background: rgba(15, 15, 15, 0.75) !important;
+    backdrop-filter: blur(6px) !important;
+
+    box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.05),
+        0 0 25px var(--xmas-red-glow);
+}
+
+/* ===== HEADER (CLASSY, NOT LOUD) ===== */
+.layout-tv .headerTabs,
+.layout-tv .headerRight {
+    padding: 10px 22px !important;
+    font-size: 1.1em;
+
+    background: rgba(0,0,0,0.45) !important;
+    backdrop-filter: blur(6px) !important;
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,0.04);
+}
+
+/* ===== OPTIONAL: VERY SUBTLE XMAS SPARKLE ===== */
+@keyframes xmasGlow {
+    0%   { box-shadow: 0 0 10px rgba(140,0,0,0.35); }
+    50%  { box-shadow: 0 0 18px rgba(45,168,57,0.45); }
+    100% { box-shadow: 0 0 10px rgba(140,0,0,0.35); }
+}
+
+.layout-tv .navMenuOption-selected {
+    animation: xmasGlow 4.5s ease-in-out infinite;
+}
+
+/* ===== KILL HOVER (TV DOES NOT CARE) ===== */
+.layout-tv *:hover {
+    transform: none !important;
+}
